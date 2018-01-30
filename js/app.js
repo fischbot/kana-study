@@ -20,7 +20,6 @@ var canvas,
 
 var kana = {
   hiragana : {
-    img : 'img/hira_tilesheet.png',
     chars : [
     // tilesheet row 1
     { "a" : {x : 0, y : 0}, rightCount : 0, wrongCount : 0 },
@@ -130,36 +129,12 @@ var kana = {
     { "vo" : {x : 704, y : 448}, rightCount : 0, wrongCount : 0 }
   ]},
   katakana : {
-    img : '',
     chars : []
   }
 }
 
 function init() {
-  canvas = document.getElementById('cardCanvas');
-  canvasContext = canvas.getContext('2d');
   answer = document.getElementById('answer').focus();
-}
-
-// Load tilesheet
-// var image = new Image(kana.SIZE, kana.SIZE);
-function loadImage(imgSource) {
-  image = new Image();
-  image.src = imgSource;
-  image.addEventListener("load", loadHandler, false);
-}
-
-function drawImage() {
-  var x = kana.hiragana.chars[0].a.x;
-  var y = kana.hiragana.chars[0].a.y;
-  canvasContext.drawImage(/* image */   image,
-                          /* src */     x, y, SIZE, SIZE,
-                          /* dest */    0, 0, SIZE, SIZE
-  );
-}
-
-function loadHandler() {
-  drawImage();
 }
 
 window.onload = function() {
@@ -170,19 +145,16 @@ window.onload = function() {
   }
 }
 
-// load img depending on study selection
 function clickHandler(e) {
   var elementClicked = e.target;
 
   if (elementClicked.className === 'hira-btn') {
     studyChoice = 'hiragana';
-    loadImage(kana.hiragana.img);
   }
 
   if (elementClicked.className === 'kata-btn') {
     console.log('katakana');
     studyChoice = 'katakana';
-    // loadImage(kana.katakana.img);
   }
 }
 
@@ -190,5 +162,4 @@ function clickHandler(e) {
 function randomChar() {
   var length = kana[studyChoice].chars.length;
   return Math.floor(Math.random() * length);
-
 }
