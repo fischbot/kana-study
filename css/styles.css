@@ -1,0 +1,35 @@
+.card-container {
+  height: 300px;
+  width: 200px;
+  border-radius: 25px;
+  margin: 100px auto 0;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 50px 0;
+}
+
+.answer-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.card-container,
+#answer {
+  background-color: #F9EBE4;
+}
+
+#answer {
+  border: none;
+  border-bottom: 2px solid #E3D8D4;
+  width: 40%;
+  height: 40px;
+  outline: none;
+  font-size: 32px;
+  text-align: center;
+}
+
+.question {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
