@@ -17,6 +17,16 @@ var answerInput,
     btns = document.getElementsByTagName('button'),
     kanaDisplay = document.getElementById('kana-display'),
     message = document.getElementById('message');
+
+function init(elementClicked) {
+  showHideToggle();
+  setStudyPath(elementClicked);
+  setupAnswerInput();
+  storeKana();
+  displayKana();
+
+  // TODO hide study-selection-buttons
+    // show reset and end buttons
 }
 
 function init() {
