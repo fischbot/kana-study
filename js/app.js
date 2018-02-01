@@ -118,6 +118,9 @@ function storeKana() {
 function isAnswerCorrect(answer) {
   return answer === kanaCurrentInfo.key;
 }
+
+function setStudyPath(elementClicked) {
+  if (elementClicked.id === 'hira-btn') {
     studyChoice = 'hiragana';
   }
 
