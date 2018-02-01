@@ -115,6 +115,12 @@ function storeKana() {
     value : Object.values(kana[studyChoice].chars[index])[0]
   }
 }
+
+function displayKana() {
+  kanaDisplay.innerText = kanaCurrentInfo.value;
+}
+
+
 function isAnswerCorrect(answer) {
   return answer === kanaCurrentInfo.key;
 }
