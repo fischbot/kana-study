@@ -47,6 +47,25 @@ function showHideToggle() {
 
 function clickHandler(e) {
   var elementClicked = e.target;
+  switch (elementClicked.id) {
+    case 'hira-btn' :
+      init(elementClicked);
+      break;
+    case 'kata-btn' :
+      init(elementClicked);
+      break;
+    case 'reset-btn' :
+      resetAll();
+      break;
+    case 'end-btn' :
+      // TODO
+      resetAll();
+      displayMessage('Stats:');
+        // display stats like most incorrect, most correct, etc
+  }
+  // TODO after clicking 'end' and selecting new study path, 'stats' message remains
+}
+
 function keydownHandler(e) {
   if (e.keyCode === 13) {
     displayMessage('');
