@@ -31,6 +31,11 @@ function init(elementClicked) {
 
 function init() {
   answer = document.getElementById('answer').focus();
+function setupAnswerInput() {
+  answerInput = document.getElementById('answer');
+  answerInput.classList.remove('hide');
+  answerInput.focus();
+  answerInput.addEventListener('keydown', keydownHandler, false);
 }
 
 window.onload = function() {
