@@ -130,8 +130,7 @@ function setStudyPath(elementClicked) {
     studyChoice = 'hiragana';
   }
 
-  if (elementClicked.className === 'kata-btn') {
-    console.log('katakana');
+  if (elementClicked.id === 'kata-btn') {
     studyChoice = 'katakana';
   }
 }
