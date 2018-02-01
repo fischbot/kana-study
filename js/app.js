@@ -47,8 +47,19 @@ function showHideToggle() {
 
 function clickHandler(e) {
   var elementClicked = e.target;
+function resetAll() {
+  kana.hiragana.chars.forEach(function(value) {
+    value.rightCount = 0;
+    value.wrongCount = 0;
+  });
 
-  if (elementClicked.className === 'hira-btn') {
+  clearInput();
+  showHideToggle();
+  displayMessage('');
+  studyChoice = '';
+  kanaCurrentInfo = '';
+  kanaDisplay.innerText = '';
+}
     studyChoice = 'hiragana';
   }
 
