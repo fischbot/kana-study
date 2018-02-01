@@ -38,12 +38,12 @@ function setupAnswerInput() {
   answerInput.addEventListener('keydown', keydownHandler, false);
 }
 
-window.onload = function() {
-  init();
 function displayMessage(text) {
   message.innerText = text;
 }
 
+window.onload = function() {
+  // set up study choice buttons
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', clickHandler, false);
   }
