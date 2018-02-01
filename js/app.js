@@ -31,6 +31,17 @@ window.onload = function() {
   }
 }
 
+function showHideToggle() {
+  var buttons = [
+    document.getElementById('study-selection-buttons'),
+    document.getElementById('end-reset-buttons')
+  ];
+
+  buttons.forEach(function(button) {
+    button.classList.toggle('hide');
+  });
+}
+
 function clickHandler(e) {
   var elementClicked = e.target;
 
