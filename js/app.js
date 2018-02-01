@@ -25,6 +25,9 @@ function init() {
 
 window.onload = function() {
   init();
+function displayMessage(text) {
+  message.innerText = text;
+}
 
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', clickHandler, false);
