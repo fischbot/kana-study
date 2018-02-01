@@ -47,6 +47,29 @@ function showHideToggle() {
 
 function clickHandler(e) {
   var elementClicked = e.target;
+function keydownHandler(e) {
+  if (e.keyCode === 13) {
+    displayMessage('');
+    var answer = answerInput.value;
+    if (answer === '') {
+      console.log('Enter answer');
+      displayMessage('You didn\'t enter anything. :(');
+    } else {
+      if (isAnswerCorrect(answer)) {
+        storeKana();
+        displayKana();
+        kana[studyChoice].chars[kanaCurrentInfo.index].rightCount += 1;
+      } else {
+        console.log('try again');
+        kana[studyChoice].chars[kanaCurrentInfo.index].wrongCount += 1;
+        // TODO output message to user
+        displayMessage('Try Again');
+      }
+      clearInput();
+    }
+  }
+}
+
 function clearInput() {
   answerInput.value = '';
 }
