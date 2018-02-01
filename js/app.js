@@ -44,7 +44,8 @@ function clickHandler(e) {
   }
 }
 
-// return a random number dependent on the length of the character study choice array
+// return a random number dependent on the length of the character
+//   study choice array
 function randomChar() {
   var length = kana[studyChoice].chars.length;
   return Math.floor(Math.random() * length);
