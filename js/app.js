@@ -10,14 +10,13 @@
         if wrong more than n times show character more frequently
         if right more than n times show character less frequently
 */
-    answer,
+var answerInput,
     SIZE = 64,
+    studyChoice,
+    kanaCurrentInfo,
     btns = document.getElementsByTagName('button'),
     studyChoice;
 
-var kana = {
-  hiragana : {
-    chars : [
     // tilesheet row 1
     { "a" : , rightCount : 0, wrongCount : 0 },
     { "i" : , rightCount : 0, wrongCount : 0 },
@@ -126,8 +125,8 @@ var kana = {
     { "vo" : , rightCount : 0, wrongCount : 0 }
   ]},
   katakana : {
-    chars : []
-  }
+    kanaDisplay = document.getElementById('kana-display'),
+    message = document.getElementById('message');
 }
 
 function init() {
