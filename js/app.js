@@ -47,6 +47,10 @@ function showHideToggle() {
 
 function clickHandler(e) {
   var elementClicked = e.target;
+function clearInput() {
+  answerInput.value = '';
+}
+
 function resetAll() {
   kana.hiragana.chars.forEach(function(value) {
     value.rightCount = 0;
