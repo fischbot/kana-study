@@ -10,8 +10,6 @@
         if wrong more than n times show character more frequently
         if right more than n times show character less frequently
 */
-var canvas,
-    canvasContext,
     answer,
     SIZE = 64,
     btns = document.getElementsByTagName('button'),
