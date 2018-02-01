@@ -29,8 +29,6 @@ function init(elementClicked) {
     // show reset and end buttons
 }
 
-function init() {
-  answer = document.getElementById('answer').focus();
 function setupAnswerInput() {
   answerInput = document.getElementById('answer');
   answerInput.classList.remove('hide');
