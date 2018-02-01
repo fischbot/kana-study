@@ -60,6 +60,15 @@ function resetAll() {
   kanaCurrentInfo = '';
   kanaDisplay.innerText = '';
 }
+
+function storeKana() {
+  var index = randomChar();
+  kanaCurrentInfo = {
+    index : index,
+    key : Object.keys(kana[studyChoice].chars[index])[0],
+    value : Object.values(kana[studyChoice].chars[index])[0]
+  }
+}
     studyChoice = 'hiragana';
   }
 
