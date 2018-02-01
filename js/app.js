@@ -115,6 +115,9 @@ function storeKana() {
     value : Object.values(kana[studyChoice].chars[index])[0]
   }
 }
+function isAnswerCorrect(answer) {
+  return answer === kanaCurrentInfo.key;
+}
     studyChoice = 'hiragana';
   }
 
