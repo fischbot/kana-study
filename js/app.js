@@ -118,6 +118,7 @@ function resetAll() {
   studyChoice = '';
   kanaCurrentInfo = '';
   kanaDisplay.innerText = '';
+  answerInput.classList.add('hide');
 }
 
 function storeKana() {
