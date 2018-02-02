@@ -14,6 +14,8 @@ var answerInput,
     SIZE = 64,
     studyChoice,
     kanaCurrentInfo,
+    streak = 0,
+    // TODO add longest streak
     btns = document.getElementsByTagName('button'),
     kanaDisplay = document.getElementById('kana-display'),
     message = document.getElementById('message');
@@ -69,12 +71,15 @@ function clickHandler(e) {
       break;
     case 'reset-btn' :
       resetAll();
+      streak = 0;
       break;
     case 'end-btn' :
       // TODO
       resetAll();
       displayMessage('Stats:');
         // display stats like most incorrect, most correct, etc
+      displayMessage(`Streak : ${streak}`); // TODO update message with more stats
+      streak = 0;
   }
   // TODO after clicking 'end' and selecting new study path, 'stats' message remains
 }
@@ -88,11 +93,13 @@ function keydownHandler(e) {
       displayMessage('You didn\'t enter anything. :(');
     } else {
       if (isAnswerCorrect(answer)) {
+        streak++;
         storeKana();
         displayKana();
         kana[studyChoice].chars[kanaCurrentInfo.index].rightCount += 1;
       } else {
         console.log('try again');
+        streak = 0;
         kana[studyChoice].chars[kanaCurrentInfo.index].wrongCount += 1;
         // TODO output message to user
         displayMessage('Try Again');
