@@ -20,6 +20,14 @@ var answerInput,
     kanaDisplay = document.getElementById('kana-display'),
     message = document.getElementById('message');
 
+// run once all .js files are loaded
+function start() {
+  // set up study choice buttons
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', clickHandler, false);
+  }
+}
+
 function init(elementClicked) {
   showHideToggle();
   setStudyPath(elementClicked);
