@@ -26,6 +26,12 @@
       </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="js/LAB.min.js"></script>
+    <script>
+      $LAB.script("js/kana.js").wait()
+      .script("js/app.js").wait(function() {
+        start();
+      });
+    </script>
   </body>
 </html>
