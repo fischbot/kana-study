@@ -15,11 +15,52 @@ var answerInput,
     SIZE = 64,
     studyChoice,
     kanaCurrentInfo,
-    streak = 0,
-    // TODO add longest streak
     btns = document.getElementsByTagName('button'),
     kanaDisplay = document.getElementById('kana-display'),
     message = document.getElementById('message');
+
+var stats = {
+  streak : 0,
+  longestStreak : 0,
+  mostCorrectKana : function() {
+    var k = {count : 0, char : {}};
+    kana.hiragana.chars.forEach(function(value) {
+      console.log(`k.count: ${k.count} | value.rightCount: ${value.rightCount}`)
+      if (value.rightCount > k.count) {
+
+          k.count = value.rightCount;
+          k.char.key = console.log(Object.keys(value)[0]);
+          k.char.value = console.log(Object.values(value)[0]);
+      }
+      // TODO fix - app currently only returns first kana with highest count
+    });
+    console.log(k.count);
+    if (k.count > 0) {
+      return k;
+    } else {
+      return "You didn't get any correct. Better luck next time. :(";
+    }
+  },
+  mostIncorrectKana : function() {
+    var k = {count : 0, char : {}};
+    kana.hiragana.chars.forEach(function(value) {
+      if (value.wrongCount > k.count) {
+          k.count = value.wrongCount;
+          k.char.key = console.log(Object.keys(value)[0]);
+          k.char.value = console.log(Object.values(value)[0]);
+      }
+      // TODO fix - app currently only returns first kana with lowest count
+    });
+    if (k.count !== 0) {
+      return k;
+    } else {
+      return "You didn't get any wrong! :)";
+    }
+  },
+  display : function() {
+    return `Most Correct Kana: ${stats.mostCorrectKana()}`;
+  }
+};
 
 // run once all .js files are loaded
 function start() {
@@ -70,13 +111,14 @@ function clickHandler(e) {
       break;
     case 'reset-btn' :
       resetAll();
-      streak = 0;
+      stats.streak = 0;
       break;
     case 'end-btn' :
-      // TODO
+      // TODO FIX - stats won't display because they're reset before they display
       resetAll();
-      displayMessage(`Streak : ${streak}`); // TODO update message with more stats
-      streak = 0;
+      displayMessage(stats.display()); // TODO update message with more stats
+      // displayMessage(`Streak : ${stats.streak}`); // TODO update message with more stats
+      stats.streak = 0;
   }
 }
 
@@ -88,12 +130,12 @@ function keydownHandler(e) {
       displayMessage('You didn\'t enter anything. :(');
     } else {
       if (isAnswerCorrect(answer)) {
-        streak++;
+        stats.streak++;
         storeKana();
         displayKana();
         kana[studyChoice].chars[kanaCurrentInfo.index].rightCount += 1;
       } else {
-        streak = 0;
+        stats.streak = 0;
         kana[studyChoice].chars[kanaCurrentInfo.index].wrongCount += 1;
         displayMessage('Try Again');
       }
