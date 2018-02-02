@@ -149,7 +149,7 @@ function clearInput() {
 }
 
 function resetAll() {
-  kana.hiragana.chars.forEach(function(value) {
+  kana[studyChoice].chars.forEach(function(value) {
     value.rightCount = 0;
     value.wrongCount = 0;
   });
