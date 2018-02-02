@@ -10,6 +10,7 @@
         if wrong more than n times show character more frequently
         if right more than n times show character less frequently
 */
+
 var answerInput,
     SIZE = 64,
     studyChoice,
@@ -34,9 +35,6 @@ function init(elementClicked) {
   setupAnswerInput();
   storeKana();
   displayKana();
-
-  // TODO hide study-selection-buttons
-    // show reset and end buttons
 }
 
 function setupAnswerInput() {
@@ -77,12 +75,9 @@ function clickHandler(e) {
     case 'end-btn' :
       // TODO
       resetAll();
-      displayMessage('Stats:');
-        // display stats like most incorrect, most correct, etc
       displayMessage(`Streak : ${streak}`); // TODO update message with more stats
       streak = 0;
   }
-  // TODO after clicking 'end' and selecting new study path, 'stats' message remains
 }
 
 function keydownHandler(e) {
@@ -90,7 +85,6 @@ function keydownHandler(e) {
     displayMessage('');
     var answer = answerInput.value.toLowerCase();
     if (answer === '') {
-      console.log('Enter answer');
       displayMessage('You didn\'t enter anything. :(');
     } else {
       if (isAnswerCorrect(answer)) {
@@ -99,10 +93,8 @@ function keydownHandler(e) {
         displayKana();
         kana[studyChoice].chars[kanaCurrentInfo.index].rightCount += 1;
       } else {
-        console.log('try again');
         streak = 0;
         kana[studyChoice].chars[kanaCurrentInfo.index].wrongCount += 1;
-        // TODO output message to user
         displayMessage('Try Again');
       }
       clearInput();
