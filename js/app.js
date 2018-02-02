@@ -50,13 +50,6 @@ function displayMessage(text) {
   message.innerText = text;
 }
 
-window.onload = function() {
-  // set up study choice buttons
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', clickHandler, false);
-  }
-}
-
 function showHideToggle() {
   var buttons = [
     document.getElementById('study-selection-buttons'),
@@ -95,7 +88,7 @@ function clickHandler(e) {
 function keydownHandler(e) {
   if (e.keyCode === 13) {
     displayMessage('');
-    var answer = answerInput.value;
+    var answer = answerInput.value.toLowerCase();
     if (answer === '') {
       console.log('Enter answer');
       displayMessage('You didn\'t enter anything. :(');
