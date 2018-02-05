@@ -36,11 +36,11 @@ function endGame() {
   stats.reset();
 }
 
-function resetAll() {
   // kana[studyChoice].chars.forEach(function(value) {
   //   value.rightCount = 0;
   //   value.wrongCount = 0;
   // });
+function resetInputMessageAndButtons() {
   clearInput();
   showHideToggle();
   displayMessage('');
