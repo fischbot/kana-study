@@ -8,8 +8,8 @@ function clickHandler(e) {
       init(btn);
       break;
     case 'reset-btn' :
-      resetAll();
-      stats.streak = 0;
+      resetInputMessageAndButtons();
+      stats.reset();
       break;
     case 'end-btn' :
       endGame();
