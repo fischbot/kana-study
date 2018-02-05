@@ -54,6 +54,14 @@ var stats = {
   },
   display : function() {
     return `Most Correct Kana: ${stats.mostCorrectKana()}`;
+  reset : function() {
+    kana[studyChoice].chars.forEach(function(value) {
+      value.rightCount = 0;
+      value.wrongCount = 0;
+    });
+
+    stats.streak = 0;
+    stats.longestStreak = 0;
   }
 };
 
