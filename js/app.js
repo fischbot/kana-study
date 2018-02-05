@@ -78,6 +78,19 @@ function endGame() {
   stats.reset();
 }
 
+function resetAll() {
+  // kana[studyChoice].chars.forEach(function(value) {
+  //   value.rightCount = 0;
+  //   value.wrongCount = 0;
+  // });
+  clearInput();
+  showHideToggle();
+  displayMessage('');
+  kanaCurrentInfo = '';
+  kanaDisplay.innerText = '';
+  answerInput.classList.add('hide');
+}
+
 function setupAnswerInput() {
   answerInput = document.getElementById('answer');
   answerInput.classList.remove('hide');
@@ -105,20 +118,8 @@ function clearInput() {
   answerInput.value = '';
 }
 
-function resetAll() {
-  // kana[studyChoice].chars.forEach(function(value) {
-  //   value.rightCount = 0;
-  //   value.wrongCount = 0;
-  // });
-  clearInput();
-  showHideToggle();
-  displayMessage('');
-  studyChoice = '';
-  kanaCurrentInfo = '';
-  kanaDisplay.innerText = '';
-  answerInput.classList.add('hide');
-}
-
+// TODO: rename or break up into multiple functions
+// Stores character info at randomly chosen index
 function storeKana() {
   var index = randomChar();
   kanaCurrentInfo = {
