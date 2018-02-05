@@ -1,15 +1,5 @@
 'use strict';
-// to retrieve (character) as key
-// > Object.keys(kana.hiragana[index])
-// ["a"]
 
-/*
-  TODO
-  - function to randomly choose the next character to display
-      takes into account the right and wrong rightCount
-        if wrong more than n times show character more frequently
-        if right more than n times show character less frequently
-*/
 
 var answerInput,
     SIZE = 64,
