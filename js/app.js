@@ -9,62 +9,6 @@ var answerInput,
     kanaDisplay = document.getElementById('kana-display'),
     message = document.getElementById('message');
 
-var stats = {
-  streak : 0,
-  longestStreak : 0,
-  mostCorrectKana : function() {
-    var k = {count : 0, char : {}};
-    kana.hiragana.chars.forEach(function(value) {
-      console.log(`k.count: ${k.count} | value.rightCount: ${value.rightCount}`)
-      if (value.rightCount > k.count) {
-
-          k.count = value.rightCount;
-          k.char.key = console.log(Object.keys(value)[0]);
-          k.char.value = console.log(Object.values(value)[0]);
-      }
-      // TODO fix - app currently only returns first kana with highest count
-  getLongestStreak : function() {
-    if (stats.streak > stats.longestStreak) {
-      stats.longestStreak = stats.streak;
-    }
-  },
-    });
-    console.log(k.count);
-    if (k.count > 0) {
-      return k;
-    } else {
-      return "You didn't get any correct. Better luck next time. :(";
-    }
-  },
-  mostIncorrectKana : function() {
-    var k = {count : 0, char : {}};
-    kana.hiragana.chars.forEach(function(value) {
-      if (value.wrongCount > k.count) {
-          k.count = value.wrongCount;
-          k.char.key = console.log(Object.keys(value)[0]);
-          k.char.value = console.log(Object.values(value)[0]);
-      }
-      // TODO fix - app currently only returns first kana with lowest count
-    });
-    if (k.count !== 0) {
-      return k;
-    } else {
-      return "You didn't get any wrong! :)";
-    }
-  },
-  display : function() {
-    return `Most Correct Kana: ${stats.mostCorrectKana()}`;
-  reset : function() {
-    kana[studyChoice].chars.forEach(function(value) {
-      value.rightCount = 0;
-      value.wrongCount = 0;
-    });
-
-    stats.streak = 0;
-    stats.longestStreak = 0;
-  }
-};
-
 // run once all .js files are loaded
 function start() {
   // set up study choice buttons
