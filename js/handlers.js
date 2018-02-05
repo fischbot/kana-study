@@ -30,6 +30,7 @@ function keydownHandler(e) {
         // get new kana TODO: rename or break up into multiple functions
         storeKana();
         displayKana();
+        displayMessage(`Streak: ${stats.streak}`);
 
       } else {
         kana[studyChoice].chars[kanaCurrentInfo.index].wrongCount += 1;
