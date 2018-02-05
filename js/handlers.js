@@ -34,7 +34,7 @@ function keydownHandler(e) {
 
       } else {
         kana[studyChoice].chars[kanaCurrentInfo.index].wrongCount += 1;
-        getLongestStreak();
+        stats.getLongestStreak();
         stats.streak = 0;
         displayMessage('Try Again');
       }
