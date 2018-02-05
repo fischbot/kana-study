@@ -12,13 +12,7 @@ function clickHandler(e) {
       stats.streak = 0;
       break;
     case 'end-btn' :
-      // TODO FIX - stats won't display because they're reset before they display
-      // stats.calculate();
-      resetAll();
-      displayMessage(stats.display()); // TODO update message with more stats
-      // displayMessage(`Streak : ${stats.streak}`); // TODO update message with more stats
-      stats.streak = 0;
-      stats.reset();
+      endGame();
   }
 }
 

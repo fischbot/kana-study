@@ -68,6 +68,16 @@ function init(elementClicked) {
   displayKana();
 }
 
+function endGame() {
+  // TODO FIX - stats won't display because they're reset before they display
+  // stats.calculate();
+  resetAll();
+  displayMessage(stats.display()); // TODO update message with more stats
+  // displayMessage(`Streak : ${stats.streak}`); // TODO update message with more stats
+  stats.streak = 0;
+  stats.reset();
+}
+
 function setupAnswerInput() {
   answerInput = document.getElementById('answer');
   answerInput.classList.remove('hide');
