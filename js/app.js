@@ -23,6 +23,11 @@ var stats = {
           k.char.value = console.log(Object.values(value)[0]);
       }
       // TODO fix - app currently only returns first kana with highest count
+  getLongestStreak : function() {
+    if (stats.streak > stats.longestStreak) {
+      stats.longestStreak = stats.streak;
+    }
+  },
     });
     console.log(k.count);
     if (k.count > 0) {
@@ -71,6 +76,7 @@ function init(elementClicked) {
 function endGame() {
   // TODO FIX - stats won't display because they're reset before they display
   // stats.calculate();
+  stats.getLongestStreak();
   resetAll();
   displayMessage(stats.display()); // TODO update message with more stats
   // displayMessage(`Streak : ${stats.streak}`); // TODO update message with more stats
