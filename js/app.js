@@ -47,6 +47,10 @@ function resetInputMessageAndButtons() {
   kanaCurrentInfo = '';
   kanaDisplay.innerText = '';
   answerInput.classList.add('hide');
+
+  kana[studyChoice].chars.forEach(function (value) {
+    value.hasBeenDisplayed = false;
+  });
 }
 
 function setupAnswerInput() {

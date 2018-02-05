@@ -18,6 +18,9 @@ function clickHandler(e) {
 
 function keydownHandler(e) {
   if (e.keyCode === 13) {
+    // set hasBeenDisplayed property for character
+    kana[studyChoice].chars[kanaCurrentInfo.index].hasBeenDisplayed = true;
+    
     // clear display message
     displayMessage('');
     var answer = answerInput.value.toLowerCase();

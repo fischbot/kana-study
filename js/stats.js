@@ -25,11 +25,17 @@ var stats = {
   difference : function() {
     // calculate the difference between right and wrong counts for each character
     kana[studyChoice].chars.forEach(function(value) {
-      value.difference = value.rightCount - value.wrongCount;
-      console.log(value);
+      if (value.hasBeenDisplayed) {
+        value.difference = value.rightCount - value.wrongCount;
+      }
     });
   },
   sort : function(characters) {
+    kana[studyChoice].chars.forEach(function(value) {
+      if (value.hasBeenDisplayed) {
+        characters.push(value);
+      }
+    });
     // determine the most correct and most incorrect characters
     characters.sort(function(a, b) {
       // sorting highest to lowest
