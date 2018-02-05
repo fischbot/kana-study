@@ -1,11 +1,11 @@
 function clickHandler(e) {
-  var elementClicked = e.target;
-  switch (elementClicked.id) {
+  var btn = e.target.id;
+  switch (btn) {
     case 'hira-btn' :
-      init(elementClicked);
+      init(btn);
       break;
     case 'kata-btn' :
-      init(elementClicked);
+      init(btn);
       break;
     case 'reset-btn' :
       resetAll();
