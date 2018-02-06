@@ -57,10 +57,12 @@ function setupAnswerInput() {
   answerInput.addEventListener('keydown', keydownHandler, false);
 }
 
+// display message to user (stats)
 function displayMessage(text) {
   message.innerText = text;
 }
 
+// Toggle show/hide for button sections (study choice | end/reset)
 function showHideToggle() {
   var buttons = [
     document.getElementById('study-selection-buttons'),
@@ -88,11 +90,12 @@ function storeKana() {
   }
 }
 
+// Outputs character
 function displayKana() {
   kanaDisplay.innerText = kanaCurrentInfo.value;
 }
 
-
+// Compares user's answer to currently displayed kana
 function isAnswerCorrect(answer) {
   return answer === kanaCurrentInfo.key;
 }
