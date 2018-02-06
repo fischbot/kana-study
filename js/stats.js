@@ -59,14 +59,19 @@ var stats = {
     // TODO still reports characters that are not incorrect as most incorrect because of 0 value
     stats.mostIncorrectKana = Object.values(characters[characters.length-1])[0];
   },
+  getAll() {
+    stats.getLongestStreak();
+    stats.difference();
+    stats.sort();
   },
   reset : function() {
+    stats.streak = 0;
+    stats.longestStreak = 0;
+
     kana[studyChoice].chars.forEach(function(value) {
       value.rightCount = 0;
       value.wrongCount = 0;
+      value.difference = 0;
     });
-
-    stats.streak = 0;
-    stats.longestStreak = 0;
   }
 };
