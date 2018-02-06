@@ -30,10 +30,13 @@ var stats = {
       }
     });
   },
-  sort : function(characters) {
+  sort : function() { // TODO rename because it does more than sort
+    var characters = [];
     kana[studyChoice].chars.forEach(function(value) {
       if (value.hasBeenDisplayed) {
         characters.push(value);
+
+        // console.log(value);
       }
     });
     // determine the most correct and most incorrect characters
