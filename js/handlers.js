@@ -20,7 +20,6 @@ function keydownHandler(e) {
   if (e.keyCode === 13) {
     // set hasBeenDisplayed property for character
     kana[studyChoice].chars[kanaCurrentInfo.index].hasBeenDisplayed = true;
-    
     // clear display message
     displayMessage('');
     var answer = answerInput.value.toLowerCase();
@@ -34,7 +33,6 @@ function keydownHandler(e) {
         storeKana();
         displayKana();
         displayMessage(`Streak: ${stats.streak}`);
-
       } else {
         kana[studyChoice].chars[kanaCurrentInfo.index].wrongCount += 1;
         stats.getLongestStreak();
