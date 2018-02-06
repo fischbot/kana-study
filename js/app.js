@@ -101,12 +101,12 @@ function isAnswerCorrect(answer) {
   return answer === kanaCurrentInfo.key;
 }
 
-function setStudyPath(elementClicked) {
-  if (elementClicked.id === 'hira-btn') {
+function setStudyPath(btn) {
+  if (btn === 'hira-btn') {
     studyChoice = 'hiragana';
   }
 
-  if (elementClicked.id === 'kata-btn') {
+  if (btn === 'kata-btn') {
     studyChoice = 'katakana';
   }
 }
