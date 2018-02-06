@@ -6,12 +6,18 @@ var stats = {
       stats.longestStreak = stats.streak;
     }
   },
-  mostCorrectKana : function(character) {
-  },
-  mostIncorrectKana : function(character) {
+  mostCorrectKana : '',
+  mostIncorrectKana : '',
+  getMostCorrectKana : function() {
     // TODO
-    // see if most incorrect characters were actually incorrect
-    // characters with 0 incorrect currently show as most incorrect
+    // if more than one character has the same highest difference value, should
+    // take into account rightCount and wrongCount
+  },
+  getMostIncorrectKana : function(displayedKanaArray) {
+    // pass array of characters that have previously been displayed
+    while(displayedKanaArray) {
+
+    }
   },
   display : function() {
     var characters = stats.calculate();
@@ -45,19 +51,11 @@ var stats = {
       return parseFloat(b.difference) - parseFloat(a.difference);
     });
 
-    return {
-      correct : charactersWithValues[0].char,
-      incorrect : charactersWithValues[charactersWithValues.length-1].char
-    }
+    // TODO move these actions to another function to get the true most correct and incorrect characters
+    stats.mostCorrectKana = Object.values(characters[0])[0];
+    // TODO still reports characters that are not incorrect as most incorrect because of 0 value
+    stats.mostIncorrectKana = Object.values(characters[characters.length-1])[0];
   },
-  calculate() {
-    kana[studyChoice].chars.forEach(function(value) {
-      // If either of these counts > 0 it means they were displayed
-      if (value.rightCount > 0 || value.wrongCount > 0) {
-
-      }
-    });
-
   },
   reset : function() {
     kana[studyChoice].chars.forEach(function(value) {
