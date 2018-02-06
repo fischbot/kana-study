@@ -20,13 +20,16 @@ var stats = {
     }
   },
   display : function() {
-    var characters = stats.calculate();
-    var streakDisplay;
-    console.log(characters);
+    var streakDisplay,
+        mostCorrectDisplay = `Most Correct: ${stats.mostCorrectKana}`,
+        mostIncorrectDisplay = `Most Incorrect: ${stats.mostIncorrectKana}`;
     if (stats.longestStreak > 0) {
         streakDisplay = `Longest Streak: ${stats.longestStreak}`;
     }
-    return streakDisplay;
+
+    return `${streakDisplay} \n
+            ${mostCorrectDisplay} \n
+            ${mostIncorrectDisplay}`;
   },
   difference : function() {
     // calculate the difference between right and wrong counts for each character
