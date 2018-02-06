@@ -17,9 +17,10 @@ function start() {
   }
 }
 
-function init(elementClicked) {
+function init(btn) {
+  // TODO reset message 
   showHideToggle();
-  setStudyPath(elementClicked);
+  setStudyPath(btn);
   setupAnswerInput();
   storeKana();
   displayKana();
