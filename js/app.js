@@ -1,6 +1,5 @@
 'use strict';
 
-
 var answerInput,
     SIZE = 64,
     studyChoice,
@@ -33,10 +32,6 @@ function endGame() {
   stats.reset(); // TODO why is this resetting before it should be running?
 }
 
-  // kana[studyChoice].chars.forEach(function(value) {
-  //   value.rightCount = 0;
-  //   value.wrongCount = 0;
-  // });
 function resetInputMessageAndButtons() {
   clearInput();
   showHideToggle();
