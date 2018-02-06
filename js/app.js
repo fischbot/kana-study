@@ -27,14 +27,10 @@ function init(btn) {
 }
 
 function endGame() {
-  // TODO FIX - stats won't display because they're reset before they display
-  // stats.calculate();
-  stats.getLongestStreak();
-  resetAll();
-  displayMessage(stats.display()); // TODO update message with more stats
-  // displayMessage(`Streak : ${stats.streak}`); // TODO update message with more stats
-  stats.streak = 0;
-  stats.reset();
+  stats.getAll();
+  resetInputMessageAndButtons();
+  displayMessage(stats.display());
+  stats.reset(); // TODO why is this resetting before it should be running?
 }
 
   // kana[studyChoice].chars.forEach(function(value) {
