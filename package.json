@@ -1,0 +1,28 @@
+{
+  "name": "kana-study",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/robotspacefish/kana-study",
+  "author": "robotspacefish <fischbot9@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.2",
+    "babel-plugin-check-es2015-constants": "^6.22.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-es2015-block-scoping": "^6.26.0",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^2.1.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
