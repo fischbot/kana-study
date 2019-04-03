@@ -73,35 +73,27 @@ const app = () => {
 
   const end = () => {
     // todo turn off event handlers
-    let mostCorrectChars = null;
-    let mostIncorrectChars = null;
+    // let mostCorrectChars = null;
+    // let mostIncorrectChars = null;
     displayMessage('');
   //  debugger;
-    sortStats(mostCorrectChars, mostIncorrectChars);
+    const mostCorrectChars = sortStats('rightCount');
+    const mostIncorrectChars = sortStats('wrongCount');
     setStatMsg(mostCorrectChars, mostIncorrectChars);
-
     kanaDisplay.innerText = '';
   }
 
-  const sortStats = (mostCorrectChars, mostIncorrectChars) => {
-    const sortedCorrect = [...kana[studyChoice].chars].sort((a, b) => b.rightCount - a.rightCount);
-
-    const sortedIncorrect = [...kana[studyChoice].chars].sort((a, b) => b.wrongCount - a.wrongCount);
-
-    let value = sortedCorrect[0].rightCount;
-
-    mostCorrectChars = sortedCorrect.filter(char => char.rightCount !== 0 && char.rightCount === value);
-
-    value = sortedIncorrect[0].wrongCount;
-
-    mostIncorrectChars = sortedIncorrect.filter(char => char.wrongCount !== 0 && char.wrongCount === value);
+  const sortStats = (countType) => {
+    const sorted = [...kana[studyChoice].chars].sort((a, b) => b[countType] - a[countType]);
+    let value = sorted[0][countType];
+    return sorted.filter(char => char[countType] !== 0 && char[countType] === value);
   };
 
-  const setStatMsg = (mostCorrectChars, mostIncorrectChars) => {
+  const setStatMsg = (correct, incorrect) => {
     let msg = 'Most correct: ';
-    msg += mostCorrectChars.map(char => Object.values(char)[0]);
+    msg += correct.map(char => Object.values(char)[0]);
     msg += '\nMost Incorrect: ';
-    msg += mostIncorrectChars.map(char => Object.values(char)[0]);
+    msg += incorrect.map(char => Object.values(char)[0]);
 
     displayMessage(msg);
   };
