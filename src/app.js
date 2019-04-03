@@ -18,7 +18,6 @@ const app = () => {
   }
   const init = (btn) => {
     kana = {...kanaOriginal };
-    console.log(kana)
     // hide choices & show end / reset
     toggleHandler(btns);
     // set study track
@@ -40,7 +39,6 @@ const app = () => {
   const reset = () => {
     toggleHandler(btns);
     answerInput.classList.add('hide');
-    // answerInput.removeEventListener('keydown', keydownHandler(), false);
     kanaDisplay.innerText = '';
     displayMessage(''); // clear most correct/ incorrect msg
   };
@@ -72,15 +70,13 @@ const app = () => {
   }
 
   const end = () => {
-    // todo turn off event handlers
-    // let mostCorrectChars = null;
-    // let mostIncorrectChars = null;
     displayMessage('');
-  //  debugger;
     const mostCorrectChars = sortStats('rightCount');
     const mostIncorrectChars = sortStats('wrongCount');
-    setStatMsg(mostCorrectChars, mostIncorrectChars);
+
     kanaDisplay.innerText = '';
+    let msg = setStatMsg(mostCorrectChars, mostIncorrectChars);
+    displayMessage(msg);
   }
 
   const sortStats = (countType) => {
@@ -90,12 +86,12 @@ const app = () => {
   };
 
   const setStatMsg = (correct, incorrect) => {
-    let msg = 'Most correct: ';
-    msg += correct.map(char => Object.values(char)[0]);
+    let msg = 'Most Correct: ';
+    msg += correct.length > 0 ? correct.map(char => Object.values(char)[0]) : 'None right. Try again. :(';
     msg += '\nMost Incorrect: ';
-    msg += incorrect.map(char => Object.values(char)[0]);
+    msg += incorrect.length > 0 ? incorrect.map(char => Object.values(char)[0]) : 'None wrong. Great Job! :D'
 
-    displayMessage(msg);
+    return msg;
   };
 
   // set up buttons for user interaction
