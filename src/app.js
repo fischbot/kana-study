@@ -42,7 +42,7 @@ const app = () => {
     answerInput.classList.add('hide');
     // answerInput.removeEventListener('keydown', keydownHandler(), false);
     kanaDisplay.innerText = '';
-    kana = { ...kanaOriginal };
+    displayMessage(''); // clear most correct/ incorrect msg
   };
 
   const displayChar = () => kanaDisplay.innerText = currentChar.kana;
