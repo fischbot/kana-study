@@ -11,11 +11,9 @@ const clickHandler = (btn, init, reset, end) => {
   if (btn.id === 'end-btn') {
     end();
   }
-
 }
 
 const keydownHandler = (e, checkAnswer) => {
-  displayMessage(''); // clear previous msg
   if (e.key === 'Enter') {
     if (e.target.value === '') {
       displayMessage('Enter your answer in romaji');

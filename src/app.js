@@ -10,6 +10,7 @@ const app = () => {
   let kana = null;
   let studyChoice = null;
   let incorrect = 0;
+  let streak = 0;
 
   const currentChar = {
     index : null,
@@ -19,6 +20,7 @@ const app = () => {
   const init = (btn) => {
     displayMessage(''); // clear msg
     kana = {...kanaOriginal };
+    console.log(kana)
     // hide choices & show end / reset
     toggleHandler(btns);
     // set study track
@@ -56,12 +58,14 @@ const app = () => {
 
   const checkAnswer = (answer) => {
     if (isAnswerCorrect(answer)) {
+      streak++;
       incorrect = 0;
       kana[studyChoice].chars[currentChar.index].rightCount++;
       // get next char
       setCurrentChar();
       displayChar();
     } else {
+      streak = 0;
       kana[studyChoice].chars[currentChar.index].wrongCount++;
       incorrect++;
       if (incorrect > 2) {
@@ -73,6 +77,8 @@ const app = () => {
         displayMessage('Try Again');
       }
     }
+
+    displayMessage(`Streak: ${streak}`);
   }
 
   const end = () => {
