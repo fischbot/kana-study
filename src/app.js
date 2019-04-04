@@ -17,6 +17,7 @@ const app = () => {
     romaji : null
   }
   const init = (btn) => {
+    displayMessage(''); // clear msg
     kana = {...kanaOriginal };
     // hide choices & show end / reset
     toggleHandler(btns);
@@ -44,7 +45,8 @@ const app = () => {
     toggleHandler(btns);
     answerInput.classList.add('hide');
     kanaDisplay.innerText = '';
-    displayMessage(''); // clear most correct/ incorrect msg
+    streak = 0;
+    displayMessage(''); // clear msg
   };
 
   const displayChar = () => kanaDisplay.innerText = currentChar.kana;
