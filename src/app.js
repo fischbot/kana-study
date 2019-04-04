@@ -19,7 +19,8 @@ const app = () => {
   }
   const init = (btn) => {
     displayMessage(''); // clear msg
-    kana = {...kanaOriginal };
+    // kana = {...kanaOriginal };
+    kana = JSON.parse(JSON.stringify(kanaOriginal)); // deep copy
     console.log(kana)
     // hide choices & show end / reset
     toggleHandler(btns);
@@ -89,6 +90,7 @@ const app = () => {
     kanaDisplay.innerText = '';
     let msg = setStatMsg(mostCorrectChars, mostIncorrectChars);
     displayMessage(msg);
+    console.log(kanaOriginal);
   }
 
   const sortStats = (countType) => {
