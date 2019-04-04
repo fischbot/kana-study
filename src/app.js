@@ -98,6 +98,9 @@ const app = () => {
   for (let btn=0; btn< btns.length; btn++) {
     btns[btn].addEventListener('click', () => clickHandler(btns[btn], init, reset, end), false);
   }
+
+  // setup input handler
+  answerInput.addEventListener('keydown', (e) => keydownHandler(e, checkAnswer), false);
 }
 
 app();

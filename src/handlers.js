@@ -1,5 +1,4 @@
-import { showHideToggle } from './assets/helpers.js';
-
+import { showHideToggle, displayMessage } from './assets/helpers.js';
 const clickHandler = (btn, init, reset, end) => {
   if (btn.id === 'hira-btn' || btn.id === 'kata-btn') {
     init(btn);
@@ -15,16 +14,21 @@ const clickHandler = (btn, init, reset, end) => {
 
 }
 
-// const keydownHandler = (checkAnswer) => {
-//   if (e.key === 'Enter') {
-//     console.log(e.target.value)
-//     // checkAnswer(e.target.value);
-//   }
-// };
+const keydownHandler = (e, checkAnswer) => {
+  displayMessage(''); // clear previous msg
+  if (e.key === 'Enter') {
+    if (e.target.value === '') {
+      displayMessage('Enter your answer in romaji');
+      return;
+    }
+    checkAnswer(e.target.value);
+    e.target.value = '';
+  }
+};
 
 const toggleHandler = (btns) => {
   btns.forEach(btn => showHideToggle(btn.id));
   showHideToggle('study-choice-msg');
 };
 
-export { clickHandler, toggleHandler };
+export { clickHandler, keydownHandler, toggleHandler };

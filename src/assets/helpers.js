@@ -7,22 +7,9 @@ const showHideToggle = (el) => {
   elToToggle.classList.toggle('hide');
 };
 
-const setupAnswerInput = (answerInput, checkAnswer) => {
+const setupAnswerInput = (answerInput) => {
   answerInput.classList.remove('hide');
   answerInput.focus();
-  answerInput.addEventListener('keydown', (e) => {
-    displayMessage(''); // clear previous msg
-
-    // todo move this to handlers
-    if (e.key === 'Enter') {
-      if (e.target.value === '') {
-        displayMessage('Enter your answer in romaji');
-        return;
-      }
-      checkAnswer(e.target.value);
-      e.target.value = '';
-    }
-  }, false);
 };
 
 // display message to user (stats)
