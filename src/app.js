@@ -27,6 +27,10 @@ const app = () => {
     setupAnswerInput(answerInput, checkAnswer);
   };
 
+  const instructions = () => {
+    return 'Select either hiragana or katakana to study. Enter your answer in romaji.';
+  }
+
   const setStudyPath = (id) => id === 'hira-btn' ? 'hiragana' : 'katakana';
 
   const setCurrentChar = () => {
@@ -101,6 +105,8 @@ const app = () => {
 
   // setup input handler
   answerInput.addEventListener('keydown', (e) => keydownHandler(e, checkAnswer), false);
+
+  displayMessage(instructions());
 }
 
 app();
