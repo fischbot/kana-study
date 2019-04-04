@@ -19,7 +19,7 @@ const keydownHandler = (e, checkAnswer) => {
       displayMessage('Enter your answer in romaji');
       return;
     }
-    checkAnswer(e.target.value);
+    checkAnswer(e.target.value.toLowerCase());
     e.target.value = '';
   }
 };
