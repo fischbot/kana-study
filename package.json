@@ -23,6 +23,6 @@
     "serve": "live-server dist",
     "build": "webpack",
     "dev-server": "webpack-dev-server",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -b master -d dist"
   }
 }
