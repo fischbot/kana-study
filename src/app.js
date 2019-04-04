@@ -90,6 +90,9 @@ const app = () => {
   };
 
   const setStatMsg = (correct, incorrect) => {
+    if (correct.length === 0 && incorrect.length === 0) {
+      return 'You didn\'t enter any answers.\nHit reset to try again.';
+    }
     let msg = 'Most Correct: ';
     msg += correct.length > 0 ? correct.map(char => Object.values(char)[0]) : 'None right. Try again. :(';
     msg += '\nMost Incorrect: ';
