@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/robotspacefish/kana-study",
-  "author": "robotspacefish <fischbot9@gmail.com>",
+  "author": "robotspacefish <9095316+robotspacefish@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
